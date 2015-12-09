@@ -21,5 +21,5 @@ Change database information in `config/config.js`
 ##Start application
 Run 
 ```
-node app.js
+node bin/www
 ```

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {# liet ke danh sach phim dang chieu, chon phim o man hinh nay #}
+    <h1>Tìm kiếm từ khóa "<span style="color: #ff0000">{{ keyword }}</span>": {{ total }} kết quả</h1>
+    {% if items %}
+        {% for i in items %}
+            <hr/>
+            <div class="item">
+                <div class="title"><h3>{{ i.title |mark_search_key(keyword) |safe}}</h3></div>
+                <div class="content">{{ i.content|strip_tags|truncate(300) |mark_search_key(keyword)| safe }}</div>
+            </div>
+            {% endfor %}
+        {{ totalPage|pagination(currentPage,link)|safe }}
+    {% endif %}
+{% endblock %}
+{% block jsExtends %}
+{% endblock %}

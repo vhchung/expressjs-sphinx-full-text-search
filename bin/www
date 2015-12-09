@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var debug = require('debug')('sphinx-sample');
+var app = require('../app');
+
+global.__base = __dirname + '../';
+global.__models = require('../libs/model_manager');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});

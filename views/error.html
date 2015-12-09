@@ -1,0 +1,6 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{ message }}</h1>
+    <h2>{{ err.status }}</h2>
+    <pre>{{ err.stack }}</pre>
+{% endblock %}
